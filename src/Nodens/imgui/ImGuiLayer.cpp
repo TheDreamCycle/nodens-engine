@@ -71,8 +71,6 @@ namespace Nodens {
 
 	void ImGuiLayer::OnImGuiRender(TimeStep ts)
 	{
-		static bool show = true;
-		//ImGui::ShowDemoWindow(&show);
 	}
 
 
