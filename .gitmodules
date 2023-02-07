@@ -1,0 +1,3 @@
+[submodule "implot"]
+	path = vendor/implot
+	url = https://github.com/epezent/implot.git
