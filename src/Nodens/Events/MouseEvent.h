@@ -47,6 +47,7 @@ namespace Nodens {
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
 		float m_XOffset, m_YOffset;
+
 	};
 
 	class  MouseButtonEvent : public Event

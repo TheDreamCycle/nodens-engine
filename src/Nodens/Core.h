@@ -2,6 +2,8 @@
 
 #include <memory>
 
+
+
 #ifdef ND_DEBUG
 	#define ND_ENABLE_ASSERTS
 #endif
@@ -26,4 +28,5 @@ namespace Nodens {
 	
 	template<typename T>
 	using Ref = std::shared_ptr<T>;
+	
 }
