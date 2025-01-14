@@ -3,6 +3,7 @@
 
 #include "imgui.h"
 #include "implot.h"
+#include "implot3d.h"
 #include "Nodens/Application.h"
 
 // TEMPORARY
@@ -30,10 +31,12 @@ namespace Nodens {
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImPlot::CreateContext();
+		ImPlot3D::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+		io.ConfigFlags |= ImGuiDockNodeFlags_PassthruCentralNode;
 
 		// Set up Dear ImGui style
 		ImGui::StyleColorsDark();
@@ -58,6 +61,7 @@ namespace Nodens {
 	{
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
+		ImPlot3D::DestroyContext();
 		ImPlot::DestroyContext();
 		ImGui::DestroyContext();
 	}
