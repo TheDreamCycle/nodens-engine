@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.8)
-project(nodens-core)
+project(nodens-engine)
 
 set(NODENS_VENDOR_PATH ${CMAKE_CURRENT_SOURCE_DIR}/vendor)
 
@@ -19,6 +19,10 @@ add_subdirectory(${IMGUI_PATH})
 # implot
 set(IMPLOT_PATH ${NODENS_VENDOR_PATH}/implot)
 add_subdirectory(${IMPLOT_PATH})
+
+# implot3d
+set(IMPLOT3D_PATH ${NODENS_VENDOR_PATH}/implot3d)
+add_subdirectory(${IMPLOT3D_PATH})
 
 # spdlog
 set(SPDLOG_PATH ${NODENS_VENDOR_PATH}/spdlog)
@@ -52,6 +56,7 @@ target_include_directories(${PROJECT_NAME}
 		${NODENS_VENDOR_PATH}
 		${IMGUI_PATH} 
 		${IMPLOT_PATH}
+		${IMPLOT3D_PATH}
 		${GLM_PATH}
 		${GLAD_PATH}/include 
 		${GLFW_PATH}/include 
@@ -71,9 +76,10 @@ target_link_libraries(${PROJECT_NAME}
 		glad 
 		imgui 
 		implot
+		implot3d
 		glfw 
 		spdlog
 )
 
-# Tell GLFW not to include OpenGL headers
+# Tell GLFW not to include OpenGL headers as it is included by glad
 add_definitions(-DGLFW_INCLUDE_NONE)
