@@ -4,7 +4,7 @@
 This is a study on the development of real-time rendering interactive applications (basically a game engine).
 
 ## Usage
-The **Nodens Engine** is a framework for developing real-time interactive applications. It provides user input and window management (from GLFW), a costumizable GUI (from DearImGui), 2D/3D graph plotting (from ImPlot and ImPlot3D) and 3D rendering using OpenGL.
+The **Nodens Engine** is a framework for developing real-time interactive applications. It provides user input and window management (from [GLFW](https://www.glfw.org/)), a costumizable GUI (from [ImGui](https://github.com/ocornut/imgui)), 2D/3D graph plotting (from [ImPlot](https://github.com/epezent/implot) and [ImPlot3D](https://github.com/brenocq/implot3d)), 3D rendering pipeline (OpenGL backend) and perfomance profiling (from [Tracy](https://github.com/wolfpld/tracy)).
 
 # Knowledge Resources
 This project is the built from the groud up based on the following works:
