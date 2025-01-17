@@ -6,8 +6,6 @@
 #include "Input.h"
 #include "Renderer/Renderer.h"
 
-#include "Tracy.hpp"
-
 #include <glfw/glfw3.h>
 
 namespace Nodens {
@@ -65,7 +63,6 @@ namespace Nodens {
 	{
 		while (m_Running)
 		{
-			ZoneScopedN("Nodens::Application::Run");
 			float time = (float)glfwGetTime();
 			TimeStep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
@@ -81,7 +78,6 @@ namespace Nodens {
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
-			FrameMarkNamed("Run-Frame");
 		}
 	}
 
