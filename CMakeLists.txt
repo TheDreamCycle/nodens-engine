@@ -30,6 +30,14 @@ if (NOT TARGET spdlog)
 add_subdirectory(${SPDLOG_PATH})
 endif()
 
+# Tracy
+set(TRACY_PATH ${NODENS_VENDOR_PATH}/tracy)
+option(TRACY_ENABLE "" ON) 
+option(TRACY_ON_DEMAND "" ON) 
+if (NOT TARGET tracy)
+add_subdirectory(${TRACY_PATH})
+endif()
+
 # glm (header only library)
 set(GLM_PATH ${NODENS_VENDOR_PATH}/glm)
 file(GLOB_RECURSE GLM_HEADER_FILES ${GLM_PATH}/glm/*.hpp)
@@ -61,6 +69,7 @@ target_include_directories(${PROJECT_NAME}
 		${GLAD_PATH}/include 
 		${GLFW_PATH}/include 
 		${SPDLOG_PATH}/include
+		${TRACY_PATH}/public/tracy
 )
 
 # precompiled headers
@@ -79,6 +88,7 @@ target_link_libraries(${PROJECT_NAME}
 		implot3d
 		glfw 
 		spdlog
+		TracyClient
 )
 
 # Tell GLFW not to include OpenGL headers as it is included by glad
