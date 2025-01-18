@@ -6,6 +6,8 @@
 #include "implot3d.h"
 #include "Nodens/Application.h"
 
+#include "Tracy.hpp"
+
 // TEMPORARY
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
@@ -27,6 +29,8 @@ namespace Nodens {
 
 	void ImGuiLayer::OnAttach()
 	{
+		ZoneScoped;
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -59,6 +63,8 @@ namespace Nodens {
 
 	void ImGuiLayer::OnDetach()
 	{
+		ZoneScoped;
+		
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImPlot3D::DestroyContext();
@@ -68,6 +74,8 @@ namespace Nodens {
 
 	void ImGuiLayer::Begin()
 	{
+		ZoneScoped;
+		
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -80,6 +88,8 @@ namespace Nodens {
 
 	void ImGuiLayer::End()
 	{
+		ZoneScoped;
+		
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());

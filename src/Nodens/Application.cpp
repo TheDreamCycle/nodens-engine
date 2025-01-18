@@ -65,7 +65,8 @@ namespace Nodens {
 	{
 		while (m_Running)
 		{
-			ZoneScopedN("Nodens::Application::Run");
+			ZoneScoped;
+
 			float time = (float)glfwGetTime();
 			TimeStep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
@@ -81,7 +82,8 @@ namespace Nodens {
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
-			FrameMarkNamed("Run-Frame");
+			
+			FrameMark;
 		}
 	}
 
@@ -93,6 +95,8 @@ namespace Nodens {
 
 	void Application::OnEvent(Event& e)
 	{
+		ZoneScoped;
+		
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(ND_BIND_EVENT_FN(Application::OnWindowClose));
 

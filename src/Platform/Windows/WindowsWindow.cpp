@@ -8,6 +8,8 @@
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
+#include "Tracy.hpp"
+
 namespace Nodens {
 	static bool s_GLFWInitialized = false;
 
@@ -33,6 +35,8 @@ namespace Nodens {
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		ZoneScoped;
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -162,6 +166,8 @@ namespace Nodens {
 
 	void WindowsWindow::OnUpdate()
 	{
+		ZoneScoped;
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
