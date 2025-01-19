@@ -2,20 +2,18 @@
 
 #include "Nodens/Renderer/GraphicsContext.h"
 
-
 struct GLFWwindow;
 
 namespace Nodens {
 
-	class OpenGLContext : public GraphicsContext
-	{
-	public:
-		OpenGLContext(GLFWwindow* windowHandle);
+class OpenGLContext : public GraphicsContext {
+ public:
+  OpenGLContext(GLFWwindow* windowHandle);
 
-		virtual void Init() override;
-		virtual void SwapBuffers() override;
-	private:
-		GLFWwindow* m_WindowHandle;
-	};
-}
+  virtual void Init() override;
+  virtual void SwapBuffers() override;
 
+ private:
+  GLFWwindow* m_WindowHandle;
+};
+}  // namespace Nodens
