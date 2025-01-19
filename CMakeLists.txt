@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required(VERSION 3.8)
-project(nodens-engine VERSION 0.2.0 LANGUAGES CXX)
+project(nodens VERSION 0.2.0 LANGUAGES CXX)
 
 # Options 
 option(ND_ENABLE_PROFILING "Enable Tracy profiling" ON)
@@ -39,7 +39,7 @@ endif()
 message(STATUS "Profiling: ${ND_ENABLE_PROFILING}")
 set(TRACY_PATH ${NODENS_VENDOR_PATH}/tracy)
 if(${ND_ENABLE_PROFILING})
-    set(TRACY_ENABLE ON)    
+    set(TRACY_ENABLE ON)
     set(TRACY_ON_DEMAND ON)
 else()
     set(TRACY_ENABLE OFF)
@@ -67,7 +67,7 @@ add_library(${PROJECT_NAME} STATIC
     ${GLM_INLINE_FILES}
 )
 
-target_compile_definitions(${PROJECT_NAME} 
+target_compile_definitions(${PROJECT_NAME}
     PRIVATE
     $<$<CONFIG:Debug>:ND_DEBUG>
     $<$<CONFIG:Release>:ND_RELEASE>
