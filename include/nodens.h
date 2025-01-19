@@ -7,6 +7,7 @@
 #include "Nodens/Layer.h"
 #include "Nodens/Log.h"
 #include "Nodens/MouseButtonCodes.h"
+#include "Nodens/Profiling.h"
 #include "Nodens/imgui/ImGuiLayer.h"
 
 //------Renderer-------------------

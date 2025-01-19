@@ -41,8 +41,9 @@ class Log {
 #define ND_INFO(...) ::Nodens::Log::GetClientLogger()->info(__VA_ARGS__)
 #define ND_TRACE(...) ::Nodens::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define ND_FATAL(...) ::Nodens::Log::GetClientLogger()->fatal(__VA_ARGS__)
+
 #else
-   // Core Log Macros
+// Core Log Macros
 #define ND_CORE_ERROR(...)
 #define ND_CORE_WARN(...)
 #define ND_CORE_INFO(...)
@@ -55,4 +56,5 @@ class Log {
 #define ND_INFO(...)
 #define ND_TRACE(...)
 #define ND_FATAL(...)
-#endif
+
+#endif  // ND_DEBUG

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Nodens/Core.h"
-#include "Nodens/Events/Event.h"
+#include "Core.h"
+#include "Events/Event.h"
 #include "ndpch.h"
 
 namespace Nodens {

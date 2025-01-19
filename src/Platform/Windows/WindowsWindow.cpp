@@ -4,8 +4,8 @@
 #include "Nodens/Events/KeyEvent.h"
 #include "Nodens/Events/MouseEvent.h"
 #include "Nodens/Log.h"
+#include "Nodens/Profiling.h"
 #include "Platform/OpenGL/OpenGLContext.h"
-#include "Tracy.hpp"
 #include "ndpch.h"
 
 namespace Nodens {
@@ -24,7 +24,7 @@ WindowsWindow::WindowsWindow(const WindowProps& props) { Init(props); }
 WindowsWindow::~WindowsWindow() {}
 
 void WindowsWindow::Init(const WindowProps& props) {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   m_Data.Title = props.Title;
   m_Data.Width = props.Width;
@@ -142,7 +142,7 @@ void WindowsWindow::Init(const WindowProps& props) {
 void WindowsWindow::Shutdown() { glfwDestroyWindow(m_Window); }
 
 void WindowsWindow::OnUpdate() {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   glfwPollEvents();
   m_Context->SwapBuffers();

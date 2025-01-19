@@ -1,7 +1,7 @@
 #include "ImGuiLayer.h"
 
 #include "Nodens/Application.h"
-#include "Tracy.hpp"
+#include "Nodens/Profiling.h"
 #include "imgui.h"
 #include "implot.h"
 #include "implot3d.h"
@@ -20,7 +20,7 @@ ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {}
 ImGuiLayer::~ImGuiLayer() {}
 
 void ImGuiLayer::OnAttach() {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   // Setup Dear ImGui context
   IMGUI_CHECKVERSION();
@@ -53,7 +53,7 @@ void ImGuiLayer::OnAttach() {
 }
 
 void ImGuiLayer::OnDetach() {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
@@ -63,7 +63,7 @@ void ImGuiLayer::OnDetach() {
 }
 
 void ImGuiLayer::Begin() {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   ImGui_ImplOpenGL3_NewFrame();
   ImGui_ImplGlfw_NewFrame();
@@ -73,7 +73,7 @@ void ImGuiLayer::Begin() {
 void ImGuiLayer::OnImGuiRender(TimeStep ts) {}
 
 void ImGuiLayer::End() {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   ImGuiIO& io = ImGui::GetIO();
   Application& app = Application::Get();

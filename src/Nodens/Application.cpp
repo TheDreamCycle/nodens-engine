@@ -5,8 +5,8 @@
 #include "Events/ApplicationEvent.h"
 #include "Input.h"
 #include "Log.h"
+#include "Profiling.h"
 #include "Renderer/Renderer.h"
-#include "Tracy.hpp"
 #include "ndpch.h"
 
 namespace Nodens {
@@ -56,7 +56,7 @@ void Application::PushOverlay(Layer* overlay) {
 
 void Application::Run() {
   while (m_Running) {
-    ZoneScoped;
+    ND_PROFILE_ZONE_SCOPED;
 
     float time = (float)glfwGetTime();
     TimeStep timestep = time - m_LastFrameTime;
@@ -72,7 +72,7 @@ void Application::Run() {
 
     m_Window->OnUpdate();
 
-    FrameMark;
+    ND_PROFILE_FRAME_MARK;
   }
 }
 
@@ -82,7 +82,7 @@ bool Application::OnWindowClose(WindowCloseEvent& e) {
 }
 
 void Application::OnEvent(Event& e) {
-  ZoneScoped;
+  ND_PROFILE_ZONE_SCOPED;
 
   EventDispatcher dispatcher(e);
   dispatcher.Dispatch<WindowCloseEvent>(
